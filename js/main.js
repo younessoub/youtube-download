@@ -58,6 +58,7 @@ fetchInfoButton.addEventListener("click", async () => {
         "items-center",
         "gap-2"
       );
+      formatItem.dataset.itag = format.itag;
       formatItem.innerHTML = `${format.mimeType.split("/")[0]} ${
         format.hasAudio == false
           ? "<img class='w-6 h-6' src='/noaudio.svg' />"
@@ -70,21 +71,14 @@ fetchInfoButton.addEventListener("click", async () => {
           : ""
       }`;
       formatItem.addEventListener("click", async () => {
-        // Handle download logic here
+        // Handle download
         try {
-          // Replace with your actual API endpoint for initiating download with the chosen format
-          const downloadResponse =
-            await fetch(/* ... your API endpoint for initiating download, passing the URL and format ... */);
-
-          // Check for download initiation success or handle errors
-          if (!downloadResponse.ok) {
-            alert("Error initiating download: " + downloadResponse.statusText);
-            return;
-          }
-
-          // Indicate download initiated or redirect to download page
-          alert("Download initiated for format: " + format.title);
-          // Add additional logic here to handle download progress or redirect to download page
+          window.open(
+            `${import.meta.env.VITE_API_URI}/download?url=${url}&itag=${
+              format.itag
+            }&container=${format.container}`,
+            "_blank"
+          );
         } catch (err) {
           console.error("Error initiating download:", err);
           alert("An error occurred while initiating download.");
