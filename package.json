@@ -1,0 +1,16 @@
+{
+  "name": "youtube-download",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "vite": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.4"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Downloader</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container mx-auto py-12 px-4">
+      <h1 class="text-3xl font-bold mb-6">YouTube Video Downloader</h1>
+
+      <div class="flex flex-col items-center">
+        <input
+          type="text"
+          id="video-url"
+          class="rounded-md border border-gray-300 p-2 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 w-full mb-4"
+          placeholder="Enter YouTube video URL"
+        />
+        <button
+          id="fetch-info"
+          class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 w-full rounded-md"
+        >
+          Get Formats
+        </button>
+      </div>
+      <div
+        id="loader"
+        class="hidden rounded-full w-14 h-14 m-auto mt-10 border-4 border-x-indigo-700 animate-spin"
+      ></div>
+
+      <div id="formats-container" class="hidden mt-6">
+        <h2 class="text-2xl font-semibold mb-4">Available Formats</h2>
+        <ul id="formats-list" class="flex flex-wrap gap-1"></ul>
+      </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
