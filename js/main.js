@@ -16,6 +16,7 @@ fetchInfoButton.addEventListener("click", async () => {
     !url.match(/https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/)
   ) {
     alert("Invalid YouTube video URL. Please try again.");
+    loader.classList.add("hidden");
     return;
   }
 
@@ -52,11 +53,18 @@ fetchInfoButton.addEventListener("click", async () => {
         "focus:ring-2",
         "focus:ring-indigo-500",
         "border-2",
-        "w-full"
+        "w-full",
+        "flex",
+        "items-center",
+        "gap-2"
       );
-      formatItem.textContent = `${format.mimeType.split("/")[0]} ${
-        format.qualityLabel ? format.qualityLabel : format.codecs
-      } ${format.container} - ${
+      formatItem.innerHTML = `${format.mimeType.split("/")[0]} ${
+        format.hasAudio == false
+          ? "<img class='w-6 h-6' src='/noaudio.svg' />"
+          : ""
+      } ${format.qualityLabel ? format.qualityLabel : format.codecs} ${
+        format.container
+      } - ${
         format.contentLength
           ? Math.floor(format.contentLength / 1000000) + "MB"
           : ""
