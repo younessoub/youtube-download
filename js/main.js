@@ -3,6 +3,8 @@ const fetchInfoButton = document.getElementById("fetch-info");
 const formatsContainer = document.getElementById("formats-container");
 const formatsList = document.getElementById("formats-list");
 const loader = document.getElementById("loader");
+const image = document.getElementById("image");
+const title = document.getElementById("title");
 
 fetchInfoButton.addEventListener("click", async () => {
   loader.classList.remove("hidden");
@@ -34,6 +36,10 @@ fetchInfoButton.addEventListener("click", async () => {
     // Clear existing formats
     formatsList.innerHTML = "";
 
+    // fill the card
+    image.src = data.videoDetails.thumbnails[0].url;
+    title.innerText = data.videoDetails.title;
+
     // Display available formats
     data.formats.forEach((format) => {
       const formatItem = document.createElement("li");
@@ -48,13 +54,13 @@ fetchInfoButton.addEventListener("click", async () => {
         "border-2",
         "w-full"
       );
-      formatItem.textContent = `${data.videoDetails.title} - ${
-        format.container
-      } - ${
+      formatItem.textContent = `${format.mimeType.split("/")[0]} ${
+        format.qualityLabel ? format.qualityLabel : format.codecs
+      } ${format.container} - ${
         format.contentLength
-          ? Math.floor(format.contentLength / 1000000)
-          : "N/A"
-      }MB `;
+          ? Math.floor(format.contentLength / 1000000) + "MB"
+          : ""
+      }`;
       formatItem.addEventListener("click", async () => {
         // Handle download logic here
         try {
