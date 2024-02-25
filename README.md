@@ -39,4 +39,8 @@ Clone this repository:
 If you want to contribute to this project, please fork the repository and submit a pull request.
 License
 
+## Disclaimer
+
+This application is intended for lawful and educational purposes only. Downloading copyrighted content without permission is illegal and violates the rights of the content creators. We do not condone or support any illegal use of this application. Please be aware of and respect copyright laws.
+
 This project is licensed under the MIT License. See the LICENSE file for details.
