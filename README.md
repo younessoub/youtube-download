@@ -16,15 +16,6 @@ Clone this repository:
 
     git clone https://github.com/younessoub/youtube-download.git
 
-## Install dependencies:
-
-    npm install
-
-## Running the application
-
-    npm run build
-    npm run preview
-
 ## Features
 
     Display video title, thumbnail, available formats, and more.
