@@ -11,10 +11,7 @@ fetchInfoButton.addEventListener("click", async () => {
   const url = videoUrlInput.value;
 
   // Validate
-  if (
-    !url ||
-    !url.match(/https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]+$/)
-  ) {
+  if (!url) {
     alert("Invalid YouTube video URL. Please try again.");
     loader.classList.add("hidden");
     return;
