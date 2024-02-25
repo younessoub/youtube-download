@@ -1,7 +1,8 @@
 # youtube-download
 
-This repository contains the frontend code for a web application that for downloading YouTube videos.
-Prerequisites
+This repository contains the frontend code for a web application for downloading YouTube videos.
+
+## Prerequisites
 
     Node.js and npm (or yarn) installed
 
